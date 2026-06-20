@@ -12,6 +12,8 @@ load_dotenv(BASE_DIR / ".env")
 
 HF_TOKEN = os.getenv("HF_TOKEN")
 if not HF_TOKEN:
+    HF_TOKEN = st.secrets.get("HF_TOKEN")
+if not HF_TOKEN:
     st.error("HF_TOKEN missing. Create a .env file in project root and set HF_TOKEN.")
     st.stop()
 
